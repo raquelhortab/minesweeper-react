@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.css';
 import styleForStatus from './styleForStatus';
+import {gameStates, cellStates} from 'mines';
 
 class Status extends React.Component {
   constructor(props) {
@@ -8,7 +9,31 @@ class Status extends React.Component {
     const game = props.game;
     game.onGameStateChange((newState) => {
       this.setState({style: styles[styleForStatus(newState)]});
+      if(game.finished()){
+        let data = {
+          dimensions: game.dimensions,
+          cellState: this.cellState(),
+          totalMines: game.mine_count,
+          cellStateOptions: cellStates
+        };
+        if (newState === gameStates.WON) {
+          window.onGameFinished(true, data);
+        }
+        else if (newState === gameStates.LOST) {
+          window.onGameFinished(false, data);
+        }
+      }
     });
+    this.cellState = ()=>{
+      let states = [];
+      for(let i = 0; i < game.dimensions[0]; i++){
+        states[i] = []
+        for(let j = 0; j < game.dimensions[1]; j++){
+          states[i][j] = game.cellState([i,j]);
+        }
+      }
+      return states;
+    }
     this.onMouseDown = (event) => {
       event.preventDefault();
       this.setState({style: styles.alivePressed});

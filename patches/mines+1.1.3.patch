@@ -1,0 +1,28 @@
+diff --git a/node_modules/mines/dist/create/index.js b/node_modules/mines/dist/create/index.js
+index 512681f..b4f0601 100644
+--- a/node_modules/mines/dist/create/index.js
++++ b/node_modules/mines/dist/create/index.js
+@@ -133,6 +133,14 @@ exports.default = function (options) {
+     return changecellStatesWith(visibleField.chord, cell);
+   };
+ 
++  var allCellsWithoutMinesRevealed = function allCellsWithoutMinesRevealed(){
++    return visibleField.allCellsWithoutMinesRevealed();
++  }
++
++  var revealed = function revealed(){
++    return visibleField.revealed();
++  }
++
+   var mark = function mark(cell) {
+     if (finished() || outOfBounds(cell)) return _state;
+     var previous_state = _state;
+@@ -143,7 +151,7 @@ exports.default = function (options) {
+     return _state;
+   };
+ 
+-  return (0, _lodash.assign)(config, { finished: finished, mark: mark, chord: chord, reveal: reveal, onGameStateChange: onGameStateChange, onCellStateChange: onCellStateChange, onRemainingMineCountChange: onRemainingMineCountChange, onTimerChange: onTimerChange, reset: reset,
++  return (0, _lodash.assign)(config, { finished: finished, mark: mark, chord: chord, reveal: reveal, onGameStateChange: onGameStateChange, onCellStateChange: onCellStateChange, onRemainingMineCountChange: onRemainingMineCountChange, onTimerChange: onTimerChange, reset: reset, allCellsWithoutMinesRevealed: allCellsWithoutMinesRevealed, revealed: revealed,
+     state: function state() {
+       return _state;
+     },
