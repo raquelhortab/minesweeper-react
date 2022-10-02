@@ -41,7 +41,9 @@ class Status extends React.Component {
     this.onMouseUp = (event) => {
       event.preventDefault();
       this.setState({style: styles[styleForStatus(game.state())]});
-      game.reset();
+      if (game.state() !== gameStates.LOST) {
+        game.reset();
+      }
     };
     this.state = {
       style: styles[styleForStatus(game.state())]
