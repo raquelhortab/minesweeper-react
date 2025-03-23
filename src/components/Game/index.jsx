@@ -4,8 +4,13 @@ import Outer from './Outer';
 import styles from './styles.css';
 
 class Game extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   getChildContext() {
-    return { game: this.props.game };
+    return { game: this.props.game, editable: this.props.editable || false };
   }
 
   render() {

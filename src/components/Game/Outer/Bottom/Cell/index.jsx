@@ -8,6 +8,9 @@ const now = () => (new Date()).getTime();
 class Cell extends React.Component {
   constructor(props) {
     super(props);
+    this.row = this.props.position[0];
+    this.col = this.props.position[1];
+
     props.game.onCellStateChange(
       (cell, state) => {
         if (isEqual(cell, props.position)) {
@@ -23,7 +26,11 @@ class Cell extends React.Component {
     this.onMouseUp = (event) => {
       const rightMouseButton = 2;
       if (event.button !== rightMouseButton && props.position === this.state.mouseStartPosition) {
-        props.game.reveal(props.position);
+        if (props.editable && event.ctrlKey) {
+          this.onCtrlClick();
+        } else {
+          props.game.reveal(props.position);
+        }
       }
       event.preventDefault();
     };
@@ -33,6 +40,11 @@ class Cell extends React.Component {
     };
     this.onRightClick = (event) => {
       props.game.mark(props.position);
+      event.preventDefault();
+    };
+    this.onCtrlClick = (event) => {
+      props.game.addMine(props.position);
+      console.log(props.game.visibleField().state());
       event.preventDefault();
     };
     this.onTouchStart = (event) => {
@@ -54,7 +66,7 @@ class Cell extends React.Component {
       event.preventDefault();
     };
 
-    this.state = { style: styles.unknown };
+    this.state = { style: styles[styleForCellState(this.props.game.visibleField().state()[this.row][this.col])] };
   }
 
   render() {

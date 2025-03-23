@@ -11,8 +11,57 @@ global.minesweeperGames = {};
 const renderComponent = (element) => {
   const preset = element.getAttribute('data-preset');
 
-  const game = create({preset: preset});
+  const game = create({ mines: [[0, 0]], mine_count: 1, dimensions: [9, 9],
+    initialState: [
+      [
+        '⬜', '1️⃣', '0️⃣',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ],
+      [
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜',
+        '⬜', '⬜', '⬜'
+      ]
+    ]
 
+  }); //preset: preset,
+window.game = game;
   const name = element.getAttribute('data-name');
 
   if (name) {
