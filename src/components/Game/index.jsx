@@ -4,6 +4,11 @@ import Outer from './Outer';
 import styles from './styles.css';
 
 class Game extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   getChildContext() {
     return { game: this.props.game };
   }
@@ -13,8 +18,8 @@ class Game extends React.Component {
     const width = cols * 16 + 20;
 
     return (
-      <div className={styles.minesweeper} style={{width: width}}>
-        <Title />
+      <div className={`${styles.minesweeper} ${this.props.modern ? 'modern' : ''}`} style={{width: width}}>
+        {this.props.hideTitle ? null : <Title />}
         <Outer />
       </div>
     );

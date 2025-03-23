@@ -16,7 +16,7 @@ class Bottom extends React.Component {
     });
 
     return (
-      <div className={styles.bottom}>
+      <div className={`${styles.bottom} minesweeper-bottom`}>
         <table>
           <tbody>
             {rows}

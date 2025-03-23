@@ -4,6 +4,11 @@
   background-color: #BBB;
 }
 
+:global(.modern) :local(.bottom) {
+  border: none;
+  background-color: transparent;
+}
+
 :local(.bottom) table {
 	border-collapse: collapse;
 	border-spacing: 0;
