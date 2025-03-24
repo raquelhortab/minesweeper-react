@@ -26,8 +26,8 @@ class Cell extends React.Component {
     this.onMouseUp = (event) => {
       const rightMouseButton = 2;
       if (event.button !== rightMouseButton && props.position === this.state.mouseStartPosition) {
-        if (props.editable && event.ctrlKey) {
-          this.onCtrlClick();
+        if (props.game.editable() && event.ctrlKey) {
+          this.onCtrlClick(event);
         } else {
           props.game.reveal(props.position);
         }
@@ -43,8 +43,7 @@ class Cell extends React.Component {
       event.preventDefault();
     };
     this.onCtrlClick = (event) => {
-      props.game.addMine(props.position);
-      console.log(props.game.visibleField().state());
+      props.game.toggleMine(props.position);
       event.preventDefault();
     };
     this.onTouchStart = (event) => {

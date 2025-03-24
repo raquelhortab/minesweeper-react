@@ -58,8 +58,8 @@ const renderComponent = (element) => {
         '⬜', '⬜', '⬜',
         '⬜', '⬜', '⬜'
       ]
-    ]
-
+    ],
+    editable: true
   }); //preset: preset,
 window.game = game;
   const name = element.getAttribute('data-name');

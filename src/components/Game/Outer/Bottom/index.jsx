@@ -6,12 +6,11 @@ import {times} from 'lodash';
 class Bottom extends React.Component {
   render() {
     const game = this.context.game;
-    const editable = this.context.editable;
     const [row_count, column_count] = game.dimensions;
 
     const rows = times(row_count, (row) => {
       const cols = times(column_count, (col) => {
-        return <Cell key={`${row}.${col}`} game={game} position={[row, col]} editable={editable} />;
+        return <Cell key={`${row}.${col}`} game={game} position={[row, col]} />;
       });
       return <tr key={row}>{cols}</tr>;
     });

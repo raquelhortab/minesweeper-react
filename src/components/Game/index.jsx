@@ -10,7 +10,7 @@ class Game extends React.Component {
   }
 
   getChildContext() {
-    return { game: this.props.game, editable: this.props.editable || false };
+    return { game: this.props.game };
   }
 
   render() {
