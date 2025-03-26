@@ -14,10 +14,13 @@ const renderComponent = (element) => {
   const dimension = element.getAttribute('data-dimension');
 
   // mines, initialState
-  const game = preset ?
-    create({preset: preset}) :
-    create({ dimensions: [dimension, dimension], editable: editable, mine_count: (editable ? 0 : undefined) });
+  const game_opts = preset ?
+    {preset: preset} :
+    {dimensions: [dimension, dimension]};
+  game_opts.editable = editable;
+  game_opts.mine_count = editable ? 0 : undefined;
 
+  const game = create(game_opts);
   const name = element.getAttribute('data-name');
 
   if (name) {
