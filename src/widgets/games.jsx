@@ -10,58 +10,14 @@ global.minesweeperGames = {};
 
 const renderComponent = (element) => {
   const preset = element.getAttribute('data-preset');
+  const editable = element.getAttribute('data-editable');
+  const dimension = element.getAttribute('data-dimension');
 
-  const game = create({ mines: [[0, 0]], mine_count: 1, dimensions: [9, 9],
-    initialState: [
-      [
-        '⬜', '1️⃣', '0️⃣',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ],
-      [
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜',
-        '⬜', '⬜', '⬜'
-      ]
-    ],
-    editable: true
-  }); //preset: preset,
-window.game = game;
+  // mines, initialState
+  const game = preset ?
+    create({preset: preset}) :
+    create({ dimensions: [dimension, dimension], editable: editable, mine_count: (editable ? 0 : undefined) });
+
   const name = element.getAttribute('data-name');
 
   if (name) {
