@@ -19,7 +19,7 @@ class Game extends React.Component {
 
     return (
       <div className={styles.minesweeper} style={{width: width}}>
-        <Title />
+        {this.props.hideTitle ? null : <Title />}
         <Outer />
       </div>
     );

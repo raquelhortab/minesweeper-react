@@ -12,11 +12,13 @@ const renderComponent = (element) => {
   const preset = element.getAttribute('data-preset');
   const editable = element.getAttribute('data-editable');
   const dimension = element.getAttribute('data-dimension');
+  const hideTitle = element.getAttribute('data-hide-title');
 
   // mines, initialState
-  const game_opts = preset ?
-    {preset: preset} :
-    {dimensions: [dimension, dimension]};
+  const game_opts = dimension ?
+    {dimensions: [dimension, dimension]} :
+    {preset: preset || 'beginner'};
+
   game_opts.editable = editable;
   game_opts.mine_count = editable ? 0 : undefined;
 
@@ -39,7 +41,7 @@ const renderComponent = (element) => {
     poll();
   }
 
-  render(<Game game={game} />, element);
+  render(<Game game={game} hideTitle={hideTitle} />, element);
 };
 
 each(document.getElementsByClassName("minesweeper-game"), renderComponent);
