@@ -9,18 +9,18 @@ class Status extends React.Component {
     const game = props.game;
     game.onGameStateChange((newState) => {
       this.setState({style: styles[styleForStatus(newState)]});
-      if(game.finished()){
+      if (game.finished()) {
         let data = {
           dimensions: game.dimensions,
           cellState: this.cellState(),
           totalMines: game.mine_count,
           cellStateOptions: cellStates
         };
+        const encrypted = game.encrypt(JSON.stringify(data));
         if (newState === gameStates.WON) {
-          window.onGameFinished(true, data);
-        }
-        else if (newState === gameStates.LOST) {
-          window.onGameFinished(false, data);
+          window.onGameFinished(true, encrypted);
+        } else if (newState === gameStates.LOST) {
+          window.onGameFinished(false, encrypted);
         }
       }
     });
