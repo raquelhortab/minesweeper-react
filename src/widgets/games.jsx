@@ -13,7 +13,7 @@ const renderComponent = (element) => {
   const editable = element.getAttribute('data-editable');
   const dimension = element.getAttribute('data-dimension');
   const hideTitle = element.getAttribute('data-hide-title');
-  const classes = element.getAttribute('data-classes');
+  const modern = element.getAttribute('data-modern');
 
   // mines, initialState
   const game_opts = dimension ?
@@ -22,6 +22,7 @@ const renderComponent = (element) => {
 
   game_opts.editable = editable;
   game_opts.mine_count = editable ? 0 : undefined;
+  game_opts.modern = Boolean(modern);
 
   const game = create(game_opts);
   const name = element.getAttribute('data-name');
@@ -42,7 +43,7 @@ const renderComponent = (element) => {
     poll();
   }
 
-  render(<Game game={game} extraStyles={classes} hideTitle={hideTitle} />, element);
+  render(<Game game={game} modern={modern} hideTitle={hideTitle} />, element);
 };
 
 each(document.getElementsByClassName("minesweeper-game"), renderComponent);
