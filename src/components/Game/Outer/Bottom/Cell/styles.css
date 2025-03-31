@@ -53,6 +53,11 @@
   background-image: url(data:image/gif;base64,R0lGODlhEAAQALMAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwICAgP8AAAD/AP//AAAA//8A/wD//////ywAAAAAEAAQAAAEPvDJSSt4J+ut0eVg5mEaYzLcWBIsQ2xq5sps94HuK95bDvM0nY20Eu6IoSHH90MemMpkE0GtWq2ArHbLzUYA);
 }
 
+:global(.modern) :local(.question) {
+  background-color: orange;
+  content: '?';
+}
+
 :local(.mine) {
   background-image: url(data:image/gif;base64,R0lGODlhEAAQALMAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwICAgP8AAAD/AP//AAAA//8A/wD//////ywAAAAAEAAQAAAEMfDISau9E1yEr7afpCEAF3pAeh4n+aicRap0KVIz3LF0dY62lWco2xlvR4pmyWoyAREAOw==);
 }

@@ -24,7 +24,7 @@ class Top extends React.Component {
     const state = this.state;
 
     return (
-      <div className={styles.top}>
+      <div className={`${styles.top} minesweeper-top`}>
         <Lcd number={state.mineCount} className={styles.minesRemaining} />
         <Status game={this.context.game} />
         <Lcd number={state.seconds} className={styles.timer} />
