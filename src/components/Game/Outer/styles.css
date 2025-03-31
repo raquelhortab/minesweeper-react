@@ -2,3 +2,8 @@
   border: 3px outset #EEE;
   background-color: #BBB;
 }
+:global(.modern) :local(.outer) {
+  border: none;
+  background-color: transparent;
+}
+
