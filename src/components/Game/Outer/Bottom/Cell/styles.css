@@ -39,7 +39,7 @@
 }
 :global(.modern) :local(.mines0)::after {
   content: "0";
-  color: grey;
+  color: #c1c1c1;
 }
 
 :local(.mines1) {

@@ -24,7 +24,7 @@
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.1",
     "lodash": "^4.13.1",
-    "mines": "git+ssh://git@github.com/raquelhortab/mines.git#make_it_card_2025_03_23",
+    "mines": "git+ssh://git@github.com/raquelhortab/mines.git#master",
     "mines-robot": "^0.5.0",
     "patch-package": "^6.4.7",
     "react": "^15.1.0",
