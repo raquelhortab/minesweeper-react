@@ -8,6 +8,7 @@ import {gameStates} from 'mines';
 
 global.minesweeperGames = {};
 
+
 const renderComponent = (element) => {
   const preset = element.getAttribute('data-preset');
   const editable = element.getAttribute('data-editable');
@@ -15,9 +16,18 @@ const renderComponent = (element) => {
   const hideTitle = element.getAttribute('data-hide-title');
   const modern = element.getAttribute('data-modern');
 
+  const parseDimension = function (val){
+    if(val.toString() === parseInt(val).toString()){
+      return [val, val];
+    }
+    else{
+      return val.split("x");
+    }
+  };
+
   // mines, initialState
   const game_opts = dimension ?
-    {dimensions: [dimension, dimension]} :
+    {dimensions: parseDimension(dimension)} :
     {preset: preset || 'beginner'};
 
   game_opts.editable = editable;

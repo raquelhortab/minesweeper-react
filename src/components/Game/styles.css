@@ -5,6 +5,7 @@
   border-style: outset;
   background-color: #BBB;
   padding: 1px;
+  min-width: 150px;
 }
 :global(.modern){
   background-color: #fdfff8;
