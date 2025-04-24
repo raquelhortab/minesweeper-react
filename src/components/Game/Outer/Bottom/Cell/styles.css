@@ -11,6 +11,9 @@
   border-radius: 6px;
   position: relative;
 }
+:global(.modern.dark) :local(.field){
+  background-color: #859470;
+}
 
 :global(.modern) :local(.field)::after {
   background-color: #c4d9a7;

@@ -18,7 +18,7 @@ class Game extends React.Component {
     const width = cols * 16 + 20;
 
     return (
-      <div className={`${styles.minesweeper} ${this.props.modern ? 'modern' : ''}`} style={{width: width}}>
+      <div className={`${styles.minesweeper} ${this.props.modern ? 'modern' : ''} ${this.props.dark ? 'dark' : ''}`} style={{width: width}}>
         {this.props.hideTitle ? null : <Title />}
         <Outer />
       </div>

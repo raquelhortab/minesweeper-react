@@ -26,7 +26,7 @@ class Cell extends React.Component {
     this.onMouseUp = (event) => {
       const rightMouseButton = 2;
       if (event.button !== rightMouseButton && props.position === this.state.mouseStartPosition) {
-        if (props.game.editable() && event.ctrlKey) {
+        if (props.game.editable && event.ctrlKey) {
           this.onCtrlClick(event);
         } else {
           props.game.reveal(props.position);
