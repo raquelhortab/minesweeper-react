@@ -17,7 +17,6 @@
 
 :global(.modern) :local(.field)::after {
   background-color: #c4d9a7;
-  display: block;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -25,6 +24,18 @@
   font-weight: bold;
   color: #2d5402;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.modern) :local(.field.smallmap) {
+  height: 26px;
+  width: 26px;
+}
+
+:global(.modern) :local(.field.smallmap)::after {
+  font-size: 18px;
 }
 
 :local(.unknown) {

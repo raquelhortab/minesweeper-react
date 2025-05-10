@@ -10,7 +10,7 @@ class Bottom extends React.Component {
 
     const rows = times(row_count, (row) => {
       const cols = times(column_count, (col) => {
-        return <Cell key={`${row}.${col}`} game={game} position={[row, col]} />;
+        return <Cell key={`${row}.${col}`} smallMap={row_count < 10 || column_count < 10} game={game} position={[row, col]} />;
       });
       return <tr key={row}>{cols}</tr>;
     });
